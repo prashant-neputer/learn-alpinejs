@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body>
+    <!-- 1. Declaring data
+    2. Listening for events
+    3. Reacting to changes -->
+
+    <!-- <h1 x-data="{ message: 'I ❤️ Alpine' }" x-text="message"></h1> -->
+
+
+    <!-- Building a counter -->
+    <!-- <div x-data="{ count: 0 }">
+        <button @click="count--">minus</button>
+        <span x-text="count"></span>
+        <button @click="count++">plus</button>
+     </div> -->
+
+
+    <!-- Building a dropdown -->
+    <!-- <div x-data="{ open: false }">
+            <button @click="open = !open">Toggle</button>
+            <div x-show="open">
+                content.....
+            </div>
+      </div> -->
+
+
+    <!-- Building a search input -->
+    <div x-data="{
+        search: '',
+        items: ['apple', 'banana', 'gauva', 'watermelon', 'orange', 'tangarin'],
+
+        get filteredItems() {
+            return this.items.filter(
+                i => i.startsWith(this.search)
+            )
+        }
+
+       }">
+
+        <input type="text" x-model="search" placeholder="enter search....">
+
+        <ul>
+            <template x-for="item in filteredItems" :key="item">
+                <li x-text="item"></li>
+            </template>
+        </ul>
+
+    </div>
+</body>
+
+</html>
